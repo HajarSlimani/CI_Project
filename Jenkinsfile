@@ -18,11 +18,17 @@ pipeline {
                 bat 'python -m pip install -r requirements.txt'
             }
         }
+        stage('Analyse qualité code - Pylint') {
+            steps {
+                bat 'python -m pylint calculator.py || exit /b 0'
+            }
+}
         stage('Tests unitaires') {
             steps {
                 bat 'python -m pytest'
             }
         }
+        
     }
     post {
         always  { echo 'Pipeline terminé' }
