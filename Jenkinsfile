@@ -37,7 +37,7 @@ pipeline {
                 copy calculator.py Release
                 copy test_calculator.py Release
                 copy requirements.txt Release
-                powershell Compress-Archive -Path Release\\* -DestinationPath Release.zip -Force
+                C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -Command "Compress-Archive -Path Release\\* -DestinationPath Release.zip -Force"
                 '''
             }
         }
